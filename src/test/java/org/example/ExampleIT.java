@@ -14,24 +14,24 @@ import static org.assertj.core.api.Assertions.*;
  * Integration Test example.
  */
 public class ExampleIT {
-    private final PrintStream standardOut = System.out;
-    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+  private final PrintStream standardOut = System.out;
+  private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-    @BeforeEach
-    public void setUp() {
-        System.setOut(new PrintStream(outputStream));
-    }
+  @BeforeEach
+  public void setUp() {
+    System.setOut(new PrintStream(outputStream));
+  }
 
-    @AfterEach
-    public void tearDown() {
-        System.setOut(standardOut);
-    }
+  @AfterEach
+  public void tearDown() {
+    System.setOut(standardOut);
+  }
 
-    @Test
-    void whenCallMain_thenCheckHelloWorldMessage() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        var mainMethod = Main.class.getDeclaredMethod("main", String[].class);
+  @Test
+  void whenCallMain_thenCheckHelloWorldMessage() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    var mainMethod = Main.class.getDeclaredMethod("main", String[].class);
 
-        mainMethod.invoke(null, (Object) null);
-        assertThat(outputStream.toString()).contains("Hello world!");
-    }
+    mainMethod.invoke(null, (Object) null);
+    assertThat(outputStream.toString()).contains("Hello world!");
+  }
 }
