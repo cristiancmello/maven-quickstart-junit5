@@ -1,14 +1,14 @@
 package org.example;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 
-import static org.assertj.core.api.Assertions.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Integration Test example.
@@ -28,7 +28,8 @@ public class ExampleIT {
   }
 
   @Test
-  void whenCallMain_thenCheckHelloWorldMessage() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+  void whenCallMain_thenCheckHelloWorldMessage()
+      throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
     var mainMethod = Main.class.getDeclaredMethod("main", String[].class);
 
     mainMethod.invoke(null, (Object) null);
