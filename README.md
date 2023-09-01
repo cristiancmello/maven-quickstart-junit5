@@ -5,15 +5,15 @@ Support to build **executable JAR** and **JaCoCo Code Coverage**.
 
 ## Dependencies
 
-- **JUnit 5** (`junit-jupiter`) v5.9.2
+- **JUnit 5** (`junit-jupiter`) v5.10.0
 - **AssertJ** (`assertj-core`) v3.24.2
 
 ## Plugins
 
-- **Maven Compiler** (`maven-compiler-plugin`) v3.8.1
-- **Maven Failsafe** (`maven-failsafe-plugin`) v3.0.0 : add Integration Tests support
+- **Maven Surefire** (`maven-surefire-plugin`) v3.1.2 : add Unit Tests support
+- **Maven Failsafe** (`maven-failsafe-plugin`) v3.1.2 : add Integration Tests support
 - **Maven JAR plugin** (`maven-jar-plugin`) v3.3.0 : generate executable JAR
-- **Maven JaCoCo plugin** (`jacoco-maven-plugin`) v0.8.9 : generate Code Coverage
+- **Maven JaCoCo plugin** (`jacoco-maven-plugin`) v0.8.10 : add Code Coverage report
 
 ## How to Build?
 
@@ -34,11 +34,13 @@ mvn clean package -DskipTests
 * Example
 
 ```sh
-java -jar target/maven-quickstart-junit5-0.1.0-1.jar
+java -jar target/maven-quickstart-junit5-1.0-SNAPSHOT.jar
 Hello world!
 ```
 
 ## How to Test?
+
+This command will execute all Unit Tests and Integration Tests.
 
 ```sh 
 mvn clean verify
@@ -56,6 +58,12 @@ mvn clean test
 
 ```sh
 mvn clean verify -DskipTests
+```
+
+### Skip All Tests
+
+```sh
+mvn clean verify -DskipTests -DskipITs
 ```
 
 ## How to Generate Code Coverage Report?
